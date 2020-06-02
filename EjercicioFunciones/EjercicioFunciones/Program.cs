@@ -45,6 +45,33 @@ namespace EjercicioFunciones
                 return numero;
             }
         }
+        public static int factorial(int n)
+        {
+            int i,factorial=1;
+            for(i=1;i<=n;i++)
+            {
+                factorial = factorial * i;
+            }
+            return factorial;
+        }
+        // factorial: 1*2*3*4*5*.....*N
+        // factorial: N*N-1*N-2*....3*2*1
+        //5*factorial(4)
+        //5*4*factorial(3)
+        //5*4*3*factorial(2)
+        //5*4*3*2*factorial(1)
+        //5*4*3*2*1
+        public static int factorial_recursiva(int n)
+        {
+            if(n>1)
+            {
+                return n*factorial_recursiva(n-1);
+            }
+            else
+            {
+                return 1;
+            }
+        }
         static void Main(string[] args)
         {
 
@@ -87,6 +114,33 @@ namespace EjercicioFunciones
             resultado=recortar(n, min, max);
             Console.WriteLine("El resultado del recorte es " + resultado);*/
             //Fin Ejercicio 3
+
+            //Ejercicio 4: 1/2! + 2/3! + 3/4! .... n/n+1!
+            /*int n,i;
+            double resultado = 0.0;
+            Console.WriteLine("Ingrese el valor de N");
+            n = int.Parse(Console.ReadLine());
+            for(i=1;i<=n;i++)
+            {
+                resultado += ((double) i / factorial(i + 1));
+            }
+            Console.WriteLine("El resultado es " + resultado);*/
+            //Fin Ejercicio 4
+            //Ejercicio 5
+            int n;
+            double resultado = 0.0;
+            Console.WriteLine("Ingrese el valor de N");
+            n = int.Parse(Console.ReadLine());
+            if(n>=4)
+            {
+                resultado = (double)factorial_recursiva(n) / factorial_recursiva(n - 4);
+                Console.WriteLine("El resultado es " + resultado);
+            }
+            else
+            {
+                Console.WriteLine("ERROR: N debe ser mayor o igual a 4");
+            }
+            //Fin Ejercicio 5
         }
     }
 }
